@@ -1,0 +1,55 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Node / Next.js
+node_modules/
+.next/
+out/
+dist/
+build/
+.turbo/
+.cache/
+.pnp.cjs
+.pnp.data.json
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# Python
+**/__pycache__/
+**/*.py[cod]
+*.pyo
+*.pyd
+*.pdb
+.eggs/
+*.egg-info/
+.Python
+.pytest_cache/
+.mypy_cache/
+.pyre/
+.dmypy.json
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Coverage / test outputs
+coverage/
+coverage-*.json
+htmlcov/
+*.coverage
+
+# Environment / secrets
+.env
+.env.*
+*.env
+
+# Logs / temp
+*.log
+logs/
+log/
