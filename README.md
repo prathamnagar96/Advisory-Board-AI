@@ -1,6 +1,11 @@
+
 # Project "Advisory Board AI"
 
 ## Professional Expertise, Democratized
+
+## Video Demo
+https://github.com/user-attachments/assets/d1e99e81-3b69-4f84-8026-e2c195c9d66e
+
 
 ## Problem Statement
 
