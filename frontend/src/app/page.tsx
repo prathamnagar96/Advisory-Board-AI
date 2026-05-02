@@ -9,8 +9,7 @@ import RecentActivity, { RecentActivityItem } from '@/components/widgets/RecentA
 import UpcomingReminders, { ReminderItem } from '@/components/widgets/UpcomingReminders';
 import TaxTips from '@/components/widgets/TaxTips';
 import ChatInterface from '@/components/ChatInterface';
-import { fetchDashboard, fetchHealthScore } from '@/lib/api';
-import { getToken } from '@/lib/api';
+import { fetchDashboard, fetchHealthScore, getToken, HealthScore } from '@/lib/api';
 import Link from 'next/link';
 
 export default function Home() {
@@ -18,7 +17,7 @@ export default function Home() {
   const [quickStats, setQuickStats] = useState<QuickStatsData | null>(null);
   const [activities, setActivities] = useState<RecentActivityItem[]>([]);
   const [reminders, setReminders] = useState<ReminderItem[]>([]);
-  const [healthScore, setHealthScore] = useState<any>(null);
+  const [healthScore, setHealthScore] = useState<HealthScore | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -100,7 +99,7 @@ export default function Home() {
                   <p className="text-sm opacity-90 mt-1">{healthScore.level} • updated {new Date(healthScore.assessment_date).toLocaleTimeString()}</p>
                   <div className="mt-3 flex flex-wrap gap-2 text-xs">
                     {Object.entries(healthScore.factors || {}).map(([k, v]) => (
-                      <span key={k} className="bg-white/15 px-3 py-1 rounded-full">{k.replace('_', ' ')}: {v}</span>
+                      <span key={k} className="bg-white/15 px-3 py-1 rounded-full">{k.replace('_', ' ')}: {String(v)}</span>
                     ))}
                   </div>
                 </div>

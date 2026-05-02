@@ -75,6 +75,18 @@ export type DashboardOverview = {
     upcoming_reminders?: DashboardReminder[];
 };
 
+export type HealthScore = {
+    score: number;
+    level: string;
+    assessment_date: string;
+    factors?: Record<string, string | number | boolean>;
+    recommendations?: string[];
+};
+
+export type TaxQuestionResponse = {
+    answer: string;
+};
+
 async function apiFetch<T>(path: string, init: RequestInit = {}): Promise<T> {
     const token = getToken();
     const headers = new Headers(init.headers);
@@ -119,11 +131,11 @@ export async function fetchDashboard() {
 }
 
 export async function fetchHealthScore() {
-    return apiFetch(`/api/dashboard/financial-health-score`);
+    return apiFetch<HealthScore>(`/api/dashboard/financial-health-score`);
 }
 
 export async function askTaxQuestion(query: string) {
-    return apiFetch(`/api/tax/query`, {
+    return apiFetch<TaxQuestionResponse>(`/api/tax/query`, {
         method: 'POST',
         body: JSON.stringify({ query }),
     });
