@@ -3,16 +3,7 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { Upload, Trash2, FileText, Search } from 'lucide-react';
-import { deleteDocument, fetchDocuments, uploadDocument, getToken } from '@/lib/api';
-
-type Doc = {
-  id: string;
-  filename: string;
-  file_type: string;
-  size: number;
-  processed: boolean;
-  upload_timestamp: string;
-};
+import { deleteDocument, fetchDocuments, uploadDocument, getToken, DocumentItem } from '@/lib/api';
 
 export default function DocumentsPage() {
   const [searchQuery, setSearchQuery] = useState('');
@@ -20,7 +11,7 @@ export default function DocumentsPage() {
   const [uploading, setUploading] = useState(false);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
-  const [documents, setDocuments] = useState<Doc[]>([]);
+  const [documents, setDocuments] = useState<DocumentItem[]>([]);
 
   useEffect(() => {
     if (!getToken()) {

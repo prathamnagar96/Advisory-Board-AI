@@ -27,6 +27,15 @@ export type Reminder = {
     is_completed: boolean;
 };
 
+export type DocumentItem = {
+    id: string;
+    filename: string;
+    file_type: string;
+    size: number;
+    processed: boolean;
+    upload_timestamp: string;
+};
+
 async function apiFetch<T>(path: string, init: RequestInit = {}): Promise<T> {
     const token = getToken();
     const headers = new Headers(init.headers);
@@ -82,7 +91,7 @@ export async function askTaxQuestion(query: string) {
 }
 
 export async function fetchDocuments() {
-    return apiFetch(`/api/documents`);
+    return apiFetch<{ documents: DocumentItem[] }>(`/api/documents`);
 }
 
 export async function uploadDocument(file: File) {
