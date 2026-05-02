@@ -36,6 +36,45 @@ export type DocumentItem = {
     upload_timestamp: string;
 };
 
+export type DashboardFinancialOverview = {
+    total_income: number;
+    total_deductions: number;
+    tax_liability: number;
+    net_income: number;
+    assessment_year: string;
+};
+
+export type DashboardQuickStats = {
+    documents_uploaded: number;
+    queries_asked: number;
+    reminders_pending: number;
+    tax_savings_estimate: number;
+};
+
+export type DashboardActivity = {
+    id: string;
+    type: 'query' | 'document' | 'reminder';
+    title: string;
+    timestamp: string;
+    metadata?: Record<string, unknown>;
+};
+
+export type DashboardReminder = {
+    id: string;
+    title: string;
+    description?: string;
+    due_date: string;
+    priority: 'low' | 'medium' | 'high';
+    type: string;
+};
+
+export type DashboardOverview = {
+    financial_overview: DashboardFinancialOverview;
+    quick_stats: DashboardQuickStats;
+    recent_activities?: DashboardActivity[];
+    upcoming_reminders?: DashboardReminder[];
+};
+
 async function apiFetch<T>(path: string, init: RequestInit = {}): Promise<T> {
     const token = getToken();
     const headers = new Headers(init.headers);
@@ -76,7 +115,7 @@ export async function fetchMe() {
 }
 
 export async function fetchDashboard() {
-    return apiFetch(`/api/dashboard/overview`);
+    return apiFetch<DashboardOverview>(`/api/dashboard/overview`);
 }
 
 export async function fetchHealthScore() {
