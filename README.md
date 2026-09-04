@@ -341,3 +341,10 @@ leveraging multi-agent GenAI systems to provide integrated tax, legal, financial
 expertise at 1% of traditional costs. The solution addresses a ₹3,000 crore market in India with global
 expansion potential, validated through rigorous accuracy benchmarking and real-world pilot programs.
 
+## License
+
+Copyright © 2026 Your Name.
+
+This project is licensed under the MIT License. Anyone may use, modify, and
+redistribute it, but the original copyright and license notice must be retained.
+See [LICENSE](LICENSE) for details.
