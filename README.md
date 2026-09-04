@@ -343,7 +343,7 @@ expansion potential, validated through rigorous accuracy benchmarking and real-w
 
 ## License
 
-Copyright © 2026 Your Name.
+Copyright © 2026 Pratham Nagar.
 
 This project is licensed under the MIT License. Anyone may use, modify, and
 redistribute it, but the original copyright and license notice must be retained.
